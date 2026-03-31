@@ -60,6 +60,7 @@ body {
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .logo-text {
@@ -67,6 +68,13 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    transition: filter 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.logo:hover .logo-text {
+    transform: translateY(-1px) scale(1.04);
+    filter: drop-shadow(0 6px 14px rgba(99, 102, 241, 0.35));
 }
 
 .nav-menu {
