@@ -45,18 +45,20 @@ window.addEventListener('scroll', () => {
 const particlesContainer = document.getElementById('particles');
 const particleCount = 50;
 
-for (let i = 0; i < particleCount; i++) {
-    const particle = document.createElement('div');
-    particle.style.position = 'absolute';
-    particle.style.width = Math.random() * 3 + 1 + 'px';
-    particle.style.height = particle.style.width;
-    particle.style.background = `rgba(99, 102, 241, ${Math.random() * 0.5 + 0.2})`;
-    particle.style.borderRadius = '50%';
-    particle.style.left = Math.random() * 100 + '%';
-    particle.style.top = Math.random() * 100 + '%';
-    particle.style.animation = `float ${Math.random() * 10 + 10}s linear infinite`;
-    particle.style.animationDelay = Math.random() * 5 + 's';
-    particlesContainer.appendChild(particle);
+if (particlesContainer) {
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.style.position = 'absolute';
+        particle.style.width = Math.random() * 3 + 1 + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.background = `rgba(99, 102, 241, ${Math.random() * 0.5 + 0.2})`;
+        particle.style.borderRadius = '50%';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.animation = `float ${Math.random() * 10 + 10}s linear infinite`;
+        particle.style.animationDelay = Math.random() * 5 + 's';
+        particlesContainer.appendChild(particle);
+    }
 }
 
 // Add float animation
@@ -103,28 +105,6 @@ document.querySelectorAll('section').forEach(section => {
     section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(section);
 });
-
-// Skill Progress Animation
-const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const progressBars = entry.target.querySelectorAll('.skill-progress');
-            progressBars.forEach(bar => {
-                const width = bar.style.width;
-                bar.style.width = '0';
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, 100);
-            });
-            skillObserver.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-const skillsSection = document.querySelector('.skills');
-if (skillsSection) {
-    skillObserver.observe(skillsSection);
-}
 
 // Contact Form Handling
 const contactForm = document.getElementById('contactForm');
