@@ -114,20 +114,30 @@ if (contactForm) {
         
         // Show success message
         const submitButton = contactForm.querySelector('button[type="submit"]');
+        const formStatus = document.getElementById('formStatus');
         const originalText = submitButton.textContent;
         submitButton.textContent = 'Sending...';
         submitButton.disabled = true;
+        if (formStatus) {
+            formStatus.textContent = '';
+        }
         
         // Simulate form submission
         setTimeout(() => {
             submitButton.textContent = 'Message Sent!';
             submitButton.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+            if (formStatus) {
+                formStatus.textContent = 'Thanks for reaching out. I will get back to you soon.';
+            }
             
             setTimeout(() => {
                 submitButton.textContent = originalText;
                 submitButton.style.background = '';
                 submitButton.disabled = false;
                 contactForm.reset();
+                if (formStatus) {
+                    formStatus.textContent = '';
+                }
             }, 2000);
         }, 1500);
     });
