@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CinemaFlow - Project Showcase</title>
+    <title>Project Showcase - Naga Manikanta</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -12,10 +12,10 @@
         <div class="container">
             <a href="index.html#projects" class="back-link"><i class="fas fa-arrow-left"></i> Back to Projects</a>
             <div class="project-page-header">
-                <h1>CinemaFlow</h1>
-                <p>Movie suggestion app that helps users discover recommended titles through a smooth, user-friendly experience.</p>
+                <h1 id="projectTitle">CinemaFlow</h1>
+                <p id="projectDescription">Movie suggestion app that helps users discover recommended titles through a smooth, user-friendly experience.</p>
                 <div class="project-page-actions">
-                    <a href="https://cinemaflow.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    <a id="projectLiveLink" href="https://cinemaflow.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                         <i class="fas fa-play-circle"></i> Open Live App
                     </a>
                     <a href="https://github.com/Manikaanta999/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
@@ -27,6 +27,7 @@
                 <div class="preview-title">Live Preview</div>
                 <iframe
                     class="live-preview-frame"
+                    id="projectPreview"
                     src="https://cinemaflow.onrender.com/"
                     title="CinemaFlow Live Demo"
                     loading="lazy">
@@ -35,5 +36,35 @@
             </div>
         </div>
     </section>
+    <script>
+        const projects = {
+            rentorra: {
+                title: 'Rentorra - Rental Platform Web App',
+                description: 'Functionality-first rental application focused on inventory visibility and faster user decision-making.',
+                live: 'https://rentorraa.netlify.app/'
+            },
+            gym: {
+                title: 'Gym Webpage',
+                description: 'Service-oriented fitness website crafted for trust, clarity, and conversion-focused structure.',
+                live: 'https://gymwebpage1.netlify.app/'
+            },
+            cinemaflow: {
+                title: 'CinemaFlow',
+                description: 'Movie suggestion app that helps users discover recommended titles through a smooth, user-friendly experience.',
+                live: 'https://cinemaflow.onrender.com/'
+            },
+            funngro: {
+                title: 'Funngro Revamp',
+                description: 'React-based web app revamp focused on modern UI/UX clarity, stronger hierarchy, and smoother interaction flow.',
+                live: 'https://funngrowrevamp.netlify.app/'
+            }
+        };
+        const project = projects[new URLSearchParams(window.location.search).get('project')] || projects.cinemaflow;
+        document.title = `${project.title} - Project Showcase`;
+        document.querySelector('#projectTitle').textContent = project.title;
+        document.querySelector('#projectDescription').textContent = project.description;
+        document.querySelector('#projectLiveLink').href = project.live;
+        document.querySelector('#projectPreview').src = project.live;
+    </script>
 </body>
 </html>
