@@ -41,7 +41,9 @@ if (sidebar) {
 }
 
 const createParticles = () => {
-    const density = Math.min(34, Math.max(18, Math.floor(window.innerWidth / 38)));
+    const density = window.innerWidth <= 768
+        ? 10
+        : Math.min(28, Math.max(16, Math.floor(window.innerWidth / 42)));
     particles = Array.from({ length: density }, (_, index) => ({
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,

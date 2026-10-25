@@ -21,6 +21,9 @@
                     <a href="https://github.com/Manikaanta999/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
                         <i class="fab fa-github"></i> View Profile
                     </a>
+                    <a id="projectSourceLink" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> View Source
+                    </a>
                 </div>
             </div>
             <div class="live-preview-card">
@@ -41,22 +44,26 @@
             rentorra: {
                 title: 'Rentorra - Rental Platform Web App',
                 description: 'Functionality-first rental application focused on inventory visibility and faster user decision-making.',
-                live: 'https://rentorraa.netlify.app/'
+                live: 'https://rentorraa.netlify.app/',
+                source: ''
             },
             gym: {
                 title: 'Gym Webpage',
                 description: 'Service-oriented fitness website crafted for trust, clarity, and conversion-focused structure.',
-                live: 'https://gymwebpage1.netlify.app/'
+                live: 'https://gymwebpage1.netlify.app/',
+                source: 'https://github.com/Manikaanta999/landing-page-fitness'
             },
             cinemaflow: {
                 title: 'CinemaFlow',
                 description: 'Movie suggestion app that helps users discover recommended titles through a smooth, user-friendly experience.',
-                live: 'https://cinemaflow.onrender.com/'
+                live: 'https://cinemaflow.onrender.com/',
+                source: 'https://github.com/Manikaanta999/FP'
             },
             funngro: {
                 title: 'Funngro Revamp',
                 description: 'React-based web app revamp focused on modern UI/UX clarity, stronger hierarchy, and smoother interaction flow.',
-                live: 'https://funngrowrevamp.netlify.app/'
+                live: 'https://funngrowrevamp.netlify.app/',
+                source: ''
             }
         };
         const project = projects[new URLSearchParams(window.location.search).get('project')] || projects.cinemaflow;
@@ -64,6 +71,12 @@
         document.querySelector('#projectTitle').textContent = project.title;
         document.querySelector('#projectDescription').textContent = project.description;
         document.querySelector('#projectLiveLink').href = project.live;
+        const sourceLink = document.querySelector('#projectSourceLink');
+        if (project.source) {
+            sourceLink.href = project.source;
+        } else {
+            sourceLink.hidden = true;
+        }
         document.querySelector('#projectPreview').src = project.live;
     </script>
     <script src="ambient.js"></script>

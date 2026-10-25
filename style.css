@@ -2066,6 +2066,27 @@ body[data-path="developer"] .path-card-professional { opacity: .82; }
     transform: translateY(-2px);
 }
 
+.project-source-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+    padding: .62rem .85rem;
+    border: 1px solid rgba(167, 139, 250, .28);
+    border-radius: 8px;
+    color: #ddd6fe;
+    font-size: .78rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: .25s ease;
+}
+
+.project-source-link:hover {
+    border-color: #c4b5fd;
+    background: rgba(167, 139, 250, .12);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
 .editorial-portfolio .btn-secondary {
     color: var(--editorial-text);
     border-color: rgba(148, 163, 184, 0.48);
@@ -2674,6 +2695,118 @@ body[data-path="developer"] .path-card-professional { opacity: .82; }
 }
 
 @media (max-width: 768px) {
+    .ambient-particles {
+        opacity: .32;
+    }
+
+    .header-particles {
+        display: none;
+    }
+
+    .editorial-portfolio .hero::before,
+    .editorial-portfolio .hero::after {
+        opacity: .35;
+    }
+
+    .editorial-portfolio .hero::before {
+        width: 24rem;
+        height: 24rem;
+        top: 22%;
+        right: -14rem;
+    }
+
+    .editorial-portfolio .hero::after {
+        width: 9rem;
+        height: 9rem;
+        bottom: 4%;
+        left: -4rem;
+    }
+
+    .editorial-portfolio .navbar {
+        min-height: 70px;
+    }
+
+    .editorial-portfolio .nav-container {
+        min-height: 70px;
+        padding: 0 .9rem;
+        gap: .55rem;
+    }
+
+    .editorial-portfolio .logo {
+        flex: 0 0 auto;
+    }
+
+    .editorial-portfolio .logo-text {
+        font-size: 1.25rem;
+    }
+
+    .nav-command {
+        min-width: 0;
+        padding: .48rem .55rem;
+        border-radius: 9px;
+    }
+
+    .command-prompt {
+        font-size: .68rem;
+    }
+
+    .command-value {
+        max-width: 8.5rem;
+        font-size: .58rem;
+    }
+
+    .editorial-portfolio .nav-contact {
+        width: 2.15rem;
+        height: 2.15rem;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .editorial-portfolio .hamburger {
+        width: 2.15rem;
+        height: 2.15rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .editorial-portfolio .hamburger span {
+        width: 21px;
+        height: 2px;
+    }
+
+    .editorial-portfolio .hero {
+        min-height: auto;
+        padding-top: 88px;
+        padding-bottom: 4.5rem;
+    }
+
+    .editorial-portfolio .hero-container {
+        gap: 1.25rem;
+    }
+
+    .editorial-portfolio .hero-visual {
+        min-height: 235px;
+        order: -1;
+        margin-bottom: .25rem;
+    }
+
+    .editorial-portfolio .hero-orbit {
+        width: min(18rem, 88vw);
+    }
+
+    .editorial-portfolio .hero-portrait {
+        width: min(58%, 230px);
+        border-width: 6px;
+    }
+
+    .editorial-portfolio .hero-title {
+        font-size: clamp(2.45rem, 12vw, 4rem);
+    }
+
+    .sidebar-orbit {
+        display: none;
+    }
+
     .editorial-portfolio .nav-container {
         gap: .7rem;
     }
